@@ -1,0 +1,165 @@
+$font-family: "SolaimanLipi", sans-serif;
+$background-color: #f9f9f9;
+$header-bg-color: #e6e6e6;
+$row-even-bg-color: #ffffff;
+$border-color: #cccccc;
+$text-color: #333333;
+
+.ledger-container {
+  font-family: $font-family;
+  background-color: $background-color;
+  margin: 20px auto;
+  max-width: 1000px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden; // Ensures the shadow doesn't break on rounded corners
+  border-radius: 8px; // Rounded corners for modern feel
+
+  .ledger-header,
+  .ledger-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); // Adaptive grid layout
+    text-align: left;
+
+    > div {
+      padding: 15px; // Increased padding for better readability
+      border: 1px solid $border-color;
+      overflow: hidden;
+      word-break: break-word; // Ensures long words do not overflow
+    }
+  }
+
+  .ledger-header {
+    background-color: $header-bg-color;
+    font-weight: bold;
+    color: $text-color;
+    text-align: center;
+
+    > div {
+      padding: 20px 15px; // Slightly larger padding for header
+    }
+  }
+
+  .ledger-row:nth-child(even) {
+    background-color: $row-even-bg-color;
+  }
+
+  // Increase specificity for first-child styling
+  .ledger-header > div:first-child,
+  .ledger-row > div:first-child {
+    border-left: none; // Remove left border for cleaner look
+  }
+
+  // Similarly for last-child
+  .ledger-header > div:last-child,
+  .ledger-row > div:last-child {
+    border-right: none; // Remove right border for cleaner look
+  }
+}
+
+.ledger-title h2 {
+  font-family: $font-family;
+  font-size: 24px; // Keep the size for impact
+  color: #ffffff;
+  text-align: center;
+  padding: 20px 0;
+  margin-bottom: 30px; // Keeps visual separation
+  border-bottom: 2px solid #4b4b4b;
+  background-color: #333333;
+  border-radius: 8px 8px 0 0; // Rounded top for the title block
+}
+
+.final-balance {
+  border: 1px solid #4a90e2;
+  padding: 8px 15px;
+  margin-top: 15px;
+  border-radius: 3px;
+  background-color: #e7f4fd;
+  color: #333;
+  text-align: left;
+}
+
+.ledger-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  font-weight: bold;
+  background-color: $background-color;
+  border-top: 1px solid $border-color;
+
+  .final-balance {
+    flex-grow: 2;
+    margin-right: auto;
+    padding: 10px;
+    font-size: 18px;
+    color: #000000; // Keeping the text black for clarity
+    background-color: #F5F5F5; // Very light gray, almost white but softer on the eyes
+    border: 2px solid #E0E0E0; // A subtle gray border to distinguish the area without strong contrast
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.05); // A very light shadow for subtle depth
+    text-align: center;
+  }
+
+  .last-updated {
+    flex-grow: 1; // Allows it to take necessary space but remain smaller than the final balance
+    text-align: right; // Aligns the text to the right, pushing it to the corner
+    padding: 10px; // Ensures there's space inside the element
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  .ledger-container {
+    .ledger-header,
+    .ledger-row {
+      grid-template-columns: repeat(
+        2,
+        1fr
+      ); // Adjust to fewer columns for mobile
+    }
+  }
+
+  .ledger-footer {
+    flex-direction: column; // Stack the elements on small screens
+    align-items: stretch; // Stretches items to fill the width
+
+    .final-balance,
+    .last-updated {
+      text-align: center; // Center-aligns text for a cleaner mobile appearance
+      margin-bottom: 10px; // Adds space between the stacked elements
+      width: 100%; // Ensures each element takes the full width
+      flex-grow: 0; // Resets growth to avoid stretching beyond intended
+    }
+
+    .last-updated {
+      order: 2; // Ensures "last updated" is at the bottom
+    }
+  }
+}
+
+button.capture-btn {
+    font-family: $font-family;
+    background-color: #007BFF; // A pleasant shade of blue
+    color: #ffffff; // White text for contrast
+    border: none; // Removing default border
+    border-radius: 5px; // Rounded corners
+    padding: 10px 15px; // Ample padding for easy clicking
+    font-size: 16px; // Slightly larger text for readability
+    cursor: pointer; // Cursor indicates clickable
+    transition: background-color 0.3s ease; // Smooth transition for hover effect
+
+    &:hover {
+      background-color: #0056b3; // A darker shade of blue on hover
+    }
+
+    &:focus {
+      outline: none; // Removing focus outline for aesthetic reasons
+      box-shadow: 0 0 0 2px rgba(0,123,255,.25); // Adding custom focus indicator
+    }
+
+    margin-top: 20px; // Space from the ledger content
+    display: block; // Ensure it's block level for centering
+    width: max-content; // Only as wide as necessary
+    margin-left: auto; // Together with the next property,
+    margin-right: auto; // centers the button within its container
+  }

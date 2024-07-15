@@ -1,0 +1,37 @@
+<div class="ledger-container" #divToCapture>
+    <!-- Ledger Header indicating ownership or to whom it belongs -->
+    <div class="ledger-title">
+      <h2>লেনদেন : নজরুল ইসলাম</h2>
+    </div>
+  
+    <!-- Column Headers -->
+    <div class="ledger-row ledger-header">
+      <div>তারিখ</div>
+      <div>বিবরণ</div>
+      <div>জমা</div>
+      <div>খরচ</div>
+      <div>টাকা পাবে</div>
+    </div>
+  
+    <!-- Transaction Rows -->
+    <div class="ledger-row" *ngFor="let transaction of transactions">
+      <div>{{ transaction.date | bengaliDate }}</div>
+      <div>{{ transaction.description }}</div>
+      <div>{{ transaction.amountReceived | numberToWords }}</div>
+      <div>{{ transaction.amountGiven | numberToWords }}</div>
+      <div>{{ transaction.balance | numberToWords }}</div>
+    </div>
+  
+    <!-- Ledger Footer -->
+    <div class="ledger-footer">
+      <!-- Final Balance -->
+      <div class="final-balance">
+        সর্বশেষ ব্যালেন্স: {{ finalBalance | numberToWords }}
+      </div>
+      <!-- Last Updated Date -->
+      <div class="last-updated">
+        সর্বশেষ হালনাগাদ: {{ lastUpdated | bengaliDate }}
+      </div>
+    </div>
+</div>  
+<button (click)="captureDiv()" class="capture-btn">Capture as Image</button>

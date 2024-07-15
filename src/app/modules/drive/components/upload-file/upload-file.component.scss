@@ -1,0 +1,132 @@
+$light-gray: #f7f7f7;
+$medium-gray: #e1e1e1;
+$dark-gray: #cccccc;
+$accent-color: #007bff; // For a pop of color
+$border-radius: 4px;
+$transition-duration: 0.3s;
+
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 2px solid $medium-gray;
+  border-radius: $border-radius;
+  background-color: $light-gray;
+  margin: 20px auto;
+  width: 60%; // Adjust based on your layout needs
+
+  input[type="file"] {
+    width: 95%;
+    margin: 15px 0;
+    padding: 12px;
+    border: 1px solid $dark-gray;
+    border-radius: $border-radius;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color $transition-duration, box-shadow $transition-duration;
+
+    &:hover, &:focus {
+      border-color: $accent-color;
+      box-shadow: 0 0 0 2px rgba($accent-color, 0.2);
+    }
+
+    &::file-selector-button {
+      padding: 6px 12px;
+      border-radius: $border-radius;
+      border: 1px solid $accent-color;
+      background-color: $accent-color;
+      color: white;
+      cursor: pointer;
+      transition: background-color $transition-duration;
+
+      &:hover {
+        background-color: darken($accent-color, 10%);
+      }
+    }
+  }
+
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: $border-radius;
+    background-color: $accent-color;
+    color: white;
+    cursor: pointer;
+    transition: background-color $transition-duration, transform $transition-duration;
+
+    &:hover {
+      background-color: darken($accent-color, 10%);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100px; /* Adjust based on your preference */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.grid-item button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%; /* Creates a circular button */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.grid-item button:hover {
+    background-color: #f0f0f0; /* Light grey background on hover */
+}
+
+.grid-item button:focus {
+    outline: none;
+    /* Optional: Add a focus style if needed */
+}
+
+.fa-download {
+    color: #007bff; /* Adjust color to match your design */
+    font-size: 1.2rem; /* Adjust size as needed */
+}
+
+.grid-item div { /* Assuming the filename is wrapped in a <div> */
+    white-space: nowrap; /* Keep the text on a single line */
+    overflow: hidden;    /* Hide overflow */
+    text-overflow: ellipsis; /* Add ellipsis to text that overflows */
+    width: 90%;          /* Set a fixed width or percentage; adjust as needed */
+    margin: 0 auto;      /* Center the text container if desired */
+}
+
+.file-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+    color: #4A90E2; /* Example: A pleasant blue */
+}

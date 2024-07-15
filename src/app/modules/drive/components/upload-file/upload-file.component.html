@@ -1,0 +1,13 @@
+<div class="upload-container">
+    <input type="file" (change)="onFileSelected($event)" multiple>
+    <button (click)="onUpload()">Upload</button>
+</div>
+<div *ngIf="selectedFiles.length > 0" class="grid-container">
+    <div *ngFor="let file of selectedFiles" class="grid-item">
+        <i class="fas fa-file-code file-icon"></i>
+        <div title="{{ file.name }}">{{ file.name }}</div> <!-- Tooltip added here -->
+        <button (click)="downloadFile(file)" title="Download">
+            <i class="fas fa-download"></i>
+        </button>
+    </div> 
+</div>

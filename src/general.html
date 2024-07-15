@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="bn">
+  <head>
+    <link
+      href="https://fonts.maateen.me/adorsho-lipi/font.css"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>বিক্রয় রশিদ</title>
+    <style>
+      body {
+        font-family: "AdorshoLipi", sans-serif;
+        max-width: 700px;
+        margin: 30px auto;
+        padding: 20px;
+        background-color: #f7f7f7;
+        color: #333;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+      h2 {
+        background: linear-gradient(145deg, #585858, #7e7e7e);
+        color: #ffffff;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+        margin: -20px -20px 20px -20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+      .memo-info {
+        text-align: left;
+        background-color: #eaeaea; /* Light Gray */
+        padding: 10px;
+        border-left: 5px solid #a6a6a6; /* Medium Gray */
+        margin-bottom: 20px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid #ddd;
+      }
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        background-color: #ffffff;
+      }
+      th {
+        background: linear-gradient(145deg, #525252, #6d6d6d);
+        color: #ffffff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      tfoot tr {
+        background-color: #6c757d; /* A neutral, darker gray for contrast */
+        color: #ffffff;
+      }
+      tfoot td {
+        font-weight: bold;
+      }
+      .total-amount {
+        text-align: left;
+        background: #f0f0f0; /* Light gray background */
+        color: #000000; /* Black text for high contrast */
+        font-weight: bold; /* Bold for emphasis */
+        border-radius: 0 0 5px 5px; /* Rounded bottom corners for a softer look */
+        border-top: 2px solid #bcbcbc; /* Stylish top border */
+        border-bottom: 2px solid #bcbcbc; /* Consistent bottom border for balance */
+        padding: 10px 15px; /* Adjust padding for better text display and comfort */
+      }
+      .total-amount span {
+        padding: 5px 10px; /* Padding inside the span for a button-like appearance */
+        background-color: #e0e0e0; /* Slightly darker gray for the span to stand out */
+        border: 1px solid #a0a0a0; /* Solid border for the span */
+        border-radius: 4px; /* Rounded corners for the span */
+        font-size: 1em; /* Adjust the font size as needed */
+        color: #333; /* Darker text color for better readability */
+        font-weight: bold; /* Makes the text bold */
+        display: inline-block; /* Allows padding and border to affect span properly */
+      }
+
+      tfoot tr td:last-child {
+        border-radius: 0 0 5px 0; /* Rounded bottom right corner */
+      }
+      @media print {
+        body {
+          max-width: 100%;
+          box-shadow: none;
+          margin: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>বিক্রয় রশিদ</h2>
+
+    <div class="memo-info"><b>তারিখ: </b> <span>৩০ মার্চ ২০২৪</span><br /></div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>বিবরণ</th>
+          <th>পরিমাণ</th>
+          <th>মূল্য (টাকা )</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ইট</td>
+          <td>১,০০০ পিস (গাড়ি ভাড়া সহ)</td>
+          <td>১৩,০০০</td>
+        </tr>
+        <tr>
+          <td>সিমেন্ট</td>
+          <td>১০ বস্তা </td>
+          <td>৫,২৫০</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td class="total-amount" colspan="2">মোট:</td>
+          <td class="total-amount"><span>১৮,২৫০ টাকা </span></td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>
